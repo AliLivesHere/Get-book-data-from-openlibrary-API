@@ -12,3 +12,10 @@ response = requests.get(api_url, parameters = parameters)
 response.raise_for_status()
 
 data = response.json()
+
+books = []
+for book in data["docs"]:
+    title = book.get("title", "N/A")
+    author = ", ".join(book.get("author_name", ["N/A"]))
+    publish_year = book.get("first_publish_year", "N/A")
+    books.append([title, author, publish_year])
