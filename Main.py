@@ -8,7 +8,7 @@ parameters ={
   "limit" : 50
 }
 
-response = requests.get(api_url, parameters = parameters)
+response = requests.get(api_url, params = parameters)
 response.raise_for_status()
 
 data = response.json()
