@@ -29,3 +29,11 @@ for book in books:
     filter.append(book)
 
 filter = filter[:50]
+
+with open("books.csv", "w", newline="", encoding="utf-8-sig") as file:
+    fieldnames = ["title", "author", "publisher" , "language" , "publish_year"]
+
+    writer = csv.DictWriter(file, fieldnames=fieldnames)
+
+    writer.writeheader()
+    writer.writerows(filter)
