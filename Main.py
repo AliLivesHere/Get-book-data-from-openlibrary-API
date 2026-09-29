@@ -3,8 +3,8 @@ import csv
 
 api_url = "https://openlibrary.org/search.json"
 
-parameters ={
-  "q" : "*" , 
+parameters ={ 
+  "q" : "book" , 
   "limit" : 50
 }
 
@@ -20,7 +20,14 @@ for book in data["docs"]:
     publisher = ", ".join(book.get("publisher", ["N/A"]))
     language = book.get("language", ["N/A"])
     publish_year = book.get("first_publish_year", "N/A")
-    books.append([title, author, publisher, language, publish_year])
+    
+    books.append({
+        "title": title,
+        "author": author,
+        "publisher": publisher,
+        "language": language,
+        "publish_year": publish_year
+    })
     
 filter = []
 for book in books:
