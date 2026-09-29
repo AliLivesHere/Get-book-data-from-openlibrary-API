@@ -21,3 +21,9 @@ for book in data["docs"]:
     language = book.get("language", ["N/A"])
     publish_year = book.get("first_publish_year", "N/A")
     books.append([title, author, publisher, language, publish_year])
+    
+filter = []
+for book in books:
+  year = book["publish_year"]
+  if year and year > 2000:
+    filter.append(book)
