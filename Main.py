@@ -27,3 +27,5 @@ for book in books:
   year = book["publish_year"]
   if year and year > 2000:
     filter.append(book)
+
+filter = filter[:50]
